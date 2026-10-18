@@ -2,7 +2,7 @@
 // Cada función está sin implementar: la prueba debe fallar primero (RED).
 
 export function crearTarea(id, titulo) {
-  throw new Error("Misión 2 pendiente");
+  return { id, titulo, completada: false };
 }
 
 export function agregarTarea(tareas, nuevaTarea) {

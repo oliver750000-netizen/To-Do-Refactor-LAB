@@ -8,7 +8,19 @@ import {
 // La suite final no debe tener pruebas pendientes.
 
 describe("crearTarea", () => {
-  it.todo("crea una tarea pendiente con id y título");
+  it("crea una tarea pendiente con id y título", () => {
+    // Arrange
+    const id = 10;
+    const titulo = "Diseñar pruebas";
+    // Act
+    const tarea = crearTarea(id, titulo);
+    // Assert
+    expect(tarea).toEqual({
+      id: 10,
+      titulo: "Diseñar pruebas",
+      completada: false
+    });
+  });
 });
 
 describe("agregarTarea", () => {
