@@ -24,9 +24,30 @@ describe("crearTarea", () => {
 });
 
 describe("agregarTarea", () => {
-  it.todo("agrega la tarea a la colección");
-  it.todo("el resultado contiene un elemento más");
-  it.todo("no modifica el array original");
+  it("agrega la tarea a la colección", () => {
+    const tareas = [{ id: 1, titulo: "Revisar requisitos", completada: false }];
+    const nueva = { id: 2, titulo: "Diseñar pruebas", completada: false };
+    const resultado = agregarTarea(tareas, nueva);
+    expect(resultado).toEqual([
+      { id: 1, titulo: "Revisar requisitos", completada: false },
+      { id: 2, titulo: "Diseñar pruebas", completada: false }
+    ]);
+  });
+  it("el resultado contiene un elemento más", () => {
+    const tareas = [{ id: 1, titulo: "Revisar requisitos", completada: false }];
+    const nueva = { id: 2, titulo: "Diseñar pruebas", completada: false };
+    const resultado = agregarTarea(tareas, nueva);
+    expect(resultado).toHaveLength(tareas.length + 1);
+  });
+
+  it("no modifica el array original", () => {
+    const tareas = [{ id: 1, titulo: "Revisar requisitos", completada: false }];
+    const nueva = { id: 2, titulo: "Diseñar pruebas", completada: false };
+    agregarTarea(tareas, nueva);
+    expect(tareas).toEqual([
+      { id: 1, titulo: "Revisar requisitos", completada: false }
+    ]);
+  });
 });
 
 describe("buscarTarea", () => {

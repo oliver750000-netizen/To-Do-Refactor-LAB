@@ -6,7 +6,7 @@ export function crearTarea(id, titulo) {
 }
 
 export function agregarTarea(tareas, nuevaTarea) {
-  throw new Error("Misión 3 pendiente");
+  return [...tareas, nuevaTarea];
 }
 
 export function buscarTarea(tareas, id) {
