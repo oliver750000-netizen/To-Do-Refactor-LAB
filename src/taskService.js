@@ -14,11 +14,11 @@ export function buscarTarea(tareas, id) {
 }
 
 export function obtenerPendientes(tareas) {
-  throw new Error("Misión 5 pendiente");
+  return tareas.filter(t => !t.completada);
 }
 
 export function obtenerTerminadas(tareas) {
-  throw new Error("Misión 5 pendiente");
+  return tareas.filter(t => t.completada);
 }
 
 export function cambiarEstado(tareas, id) {

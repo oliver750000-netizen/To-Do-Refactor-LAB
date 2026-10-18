@@ -76,11 +76,75 @@ describe("buscarTarea", () => {
   });
 });
 
-describe("obtenerPendientes / obtenerTerminadas", () => {
-  it.todo("colección mixta");
-  it.todo("ninguna pendiente");
-  it.todo("colección vacía");
+describe("obtenerPendientes", () => {
+  it("devuelve solo las pendientes en una colección mixta", () => {
+    // Arrange
+    const tareas = [
+      { id: 1, titulo: "Revisar requisitos", completada: false },
+      { id: 2, titulo: "Diseñar pruebas", completada: true },
+      { id: 3, titulo: "Refactorizar código", completada: false }
+    ];
+    // Act
+    const resultado = obtenerPendientes(tareas);
+    // Assert
+    expect(resultado).toEqual([
+      { id: 1, titulo: "Revisar requisitos", completada: false },
+      { id: 3, titulo: "Refactorizar código", completada: false }
+    ]);
+  });
+
+  it("devuelve [] si ninguna está pendiente", () => {
+    // Arrange
+    const tareas = [
+      { id: 1, titulo: "Revisar requisitos", completada: true },
+      { id: 2, titulo: "Diseñar pruebas", completada: true }
+    ];
+    // Act
+    const resultado = obtenerPendientes(tareas);
+    // Assert
+    expect(resultado).toEqual([]);
+  });
+
+  it("devuelve [] con una colección vacía", () => {
+    // Arrange
+    const tareas = [];
+    // Act
+    const resultado = obtenerPendientes(tareas);
+    // Assert
+    expect(resultado).toEqual([]);
+  });
 });
+
+describe("obtenerTerminadas", () => {
+  it("devuelve solo las terminadas en una colección mixta", () => {
+    const tareas = [
+      { id: 1, titulo: "Revisar requisitos", completada: false },
+      { id: 2, titulo: "Diseñar pruebas", completada: true },
+      { id: 3, titulo: "Refactorizar código", completada: true }
+    ];
+    const resultado = obtenerTerminadas(tareas);
+    expect(resultado).toEqual([
+      { id: 2, titulo: "Diseñar pruebas", completada: true },
+      { id: 3, titulo: "Refactorizar código", completada: true }
+    ]);
+  });
+
+  it("devuelve [] si ninguna está terminada", () => {
+    const tareas = [
+      { id: 1, titulo: "Revisar requisitos", completada: false },
+      { id: 2, titulo: "Diseñar pruebas", completada: false }
+    ];
+    const resultado = obtenerTerminadas(tareas);
+    expect(resultado).toEqual([]);
+  });
+
+  it("devuelve [] con una colección vacía", () => {
+    const tareas = [];
+    const resultado = obtenerTerminadas(tareas);
+    expect(resultado).toEqual([]);
+  });
+});
+
 
 describe("cambiarEstado", () => {
   it.todo("cambia el estado de la tarea correcta");
