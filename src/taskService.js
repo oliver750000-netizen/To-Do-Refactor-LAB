@@ -10,7 +10,7 @@ export function agregarTarea(tareas, nuevaTarea) {
 }
 
 export function buscarTarea(tareas, id) {
-  throw new Error("Misión 4 pendiente");
+  return tareas.find(t => t.id === id);
 }
 
 export function obtenerPendientes(tareas) {

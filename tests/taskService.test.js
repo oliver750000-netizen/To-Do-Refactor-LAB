@@ -51,8 +51,29 @@ describe("agregarTarea", () => {
 });
 
 describe("buscarTarea", () => {
-  it.todo("encuentra un id existente");
-  it.todo("devuelve undefined con un id inexistente");
+  it("encuentra un id existente", () => {
+    // Arrange
+    const tareas = [
+      { id: 1, titulo: "Revisar requisitos", completada: false },
+      { id: 2, titulo: "Diseñar pruebas", completada: true }
+    ];
+    // Act
+    const resultado = buscarTarea(tareas, 2);
+    // Assert
+    expect(resultado).toEqual({ id: 2, titulo: "Diseñar pruebas", completada: true });
+  });
+
+  it("devuelve undefined con un id inexistente", () => {
+    // Arrange
+    const tareas = [
+      { id: 1, titulo: "Revisar requisitos", completada: false },
+      { id: 2, titulo: "Diseñar pruebas", completada: true }
+    ];
+    // Act
+    const resultado = buscarTarea(tareas, 99);
+    // Assert
+    expect(resultado).toBeUndefined();
+  });
 });
 
 describe("obtenerPendientes / obtenerTerminadas", () => {
