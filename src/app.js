@@ -6,12 +6,17 @@ import {
 } from "./taskService.js";
 
 // TODO Misión 9: estado inicial como array de objetos
-let tareas = [];
+//Mision 1: Cambiar el modelo de string a objeto ..
+let tareas = [
+  {id: 1, titulo: "Revisar requisitos", completada: false},
+  
+  {id: 2, titulo: "Disenar pruebas", completada: false},
+  
+  {id: 3, titulo: "Refactorizar codigo", completada: false}
+];
 
 // TODO Misión 9: render(), eventos de alta, cambio de estado, filtro y eliminar
 function render() {
 }
 
 render();
-// Prueba de cambio para Git
-// Prueba de Oliver
