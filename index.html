@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ToDo Refactor Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>ToDo Refactor Lab</h1>
+
+    <!-- Los controles de abajo se usan a partir de la Misión 9 -->
+    <form id="form-tarea">
+      <input id="titulo" type="text" placeholder="Nueva tarea" autocomplete="off">
+      <button type="submit">Agregar</button>
+    </form>
+    <p id="mensaje" role="alert"></p>
+
+    <select id="filtro" aria-label="Filtrar tareas">
+      <option value="todas">Todas</option>
+      <option value="pendientes">Pendientes</option>
+      <option value="terminadas">Terminadas</option>
+    </select>
+
+    <ul id="lista"></ul>
+    <p id="resumen"></p>
+  </main>
+
+  <!-- Al inicio se carga la versión legacy.
+       En la Misión 9 cambien esta línea por: src/app.js -->
+  <script type="module" src="src/legacy.js"></script>
+</body>
+</html>
